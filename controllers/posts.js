@@ -63,3 +63,14 @@ export const likePost = async (req, res) => {
     res.json(updatedPost);
 
 }
+
+export const getNumberOfPosts = async (req, res) => {
+    try {
+        const countPosts = await PostMessage.countDocuments();
+        res.status(200).json(countPosts);
+ 
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+ 
+ };
