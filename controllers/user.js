@@ -30,7 +30,6 @@ export const signin = async (req, res) => {
 
 export const signup = async (req, res) => {
     const {email, password, confirmPassword, firstName, lastName} = req.body;
-
     try {
         const existingUser = await User.findOne({});
 
@@ -38,6 +37,7 @@ export const signup = async (req, res) => {
 
         if (password !== confirmPassword) return res.status(400).json({message: "Passwords don't match."});
 
+        console.log(password);
         const hashedPassword = await bcrypt.hash(password, 12);
 
         const result = await User.create({ email, password : hashedPassword, name: `${firstName} ${lastName}` });
@@ -47,9 +47,9 @@ export const signup = async (req, res) => {
         res.status(201).json({result, token});
 
     } catch (error) {
-        res.status(500).json({message: 'Something went wrong.'});
-
         console.log(error);
+        res.status(500).json({message: 'Something went wrong.'});
+        
     }
 
 };
