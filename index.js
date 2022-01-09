@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     res.send('Hello to Memories API');
 });
 
-//const CONNECTION_URL = "mongodb+srv://Marko1212:123123123@cluster0.ycss7.mongodb.net/test?retryWrites=true&w=majority";
+//const CONNECTION_URL = "mongodb+srv://Marko1212:Marko12121973@cluster0.ycss7.mongodb.net/test?retryWrites=true&w=majority";
 
 const PORT = process.env.PORT || 5000;
 
